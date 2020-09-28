@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+{% if session['logged_in'] %}
+<p>Oh no Dont show page</p>
+{% else %}
+
+
+<head>
+	<title>REGISTRATION PAGE</title>
+	<meta charset='utf-8'>
+	<link rel="stylesheet" href="main.css" type="text/css" media="all">
+	<script src="capture.js">
+	</script>
+</head>
+<body>
+<div class="contentarea">
+  <div class="camera">
+    <video id="video">Video stream not available.</video>
+    <button id="startbutton">Take photo</button> 
+  </div>
+  <canvas id="canvas">
+  </canvas>
+  <div class="output">
+    <img id="photo" alt="The screen capture will appear in this box."> 
+  </div>
+</div>
+</body>	
+
+<h2>Register</h2>
+<!-- <form action="/register/" method="POST">
+  <input type="username" name="username" placeholder="Username">
+  <input type="submit" value="Log in">
+</form> -->
+<form action="/register/" method="POST">
+  <div class="form-group">
+    <label for="formGroupExampleInput">Username</label>
+    <input type="text" class="form-control" id="formGroupExampleInput"  name="username" placeholder="Username">
+  </div>
+  <button type="submit" class="btn btn-primary">Sign up</button>
+</form>
+
+{% endif %}
+{% endblock %}
